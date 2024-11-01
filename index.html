@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaksi dengan Nurul Hakiki</title>
+    <style>
+        /* CSS untuk styling halaman */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+        }
+        .question, .final-question {
+            display: none;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .start-btn {
+            background-color: #4CAF50;
+        }
+        .yes-btn {
+            background-color: #4CAF50;
+        }
+        .no-btn, .end-btn {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Halo, Nurul Hakiki!</h1>
+        <p>Ingin bermain pertanyaan singkat?</p>
+        <button class="start-btn" onclick="startQuestion()">Mulai</button>
+
+        <!-- Pertanyaan pertama -->
+        <div class="question">
+            <p>Apakah Anda menyukai mie ayam?</p>
+            <button class="yes-btn" onclick="nextQuestion()">Yes</button>
+            <button class="no-btn" onclick="endConversation()">No</button>
+        </div>
+
+        <!-- Pertanyaan lanjutan jika memilih Yes -->
+        <div class="final-question">
+            <p>Apakah Anda mau makan bersama saya?</p>
+            <button class="yes-btn" onclick="thankYou()">Yes, tentu!</button>
+            <button class="end-btn" onclick="endConversation()">Tidak, terima kasih</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk mengontrol tampilan pertanyaan
+        function startQuestion() {
+            document.querySelector(".start-btn").style.display = "none";
+            document.querySelector(".question").style.display = "block";
+        }
+
+        function nextQuestion() {
+            document.querySelector(".question").style.display = "none";
+            document.querySelector(".final-question").style.display = "block";
+        }
+
+        function endConversation() {
+            alert("Terima kasih atas jawabannya!");
+            document.querySelector(".container").style.display = "none";
+        }
+
+        function thankYou() {
+            alert("Seru! Mari kita makan mie ayam bersama 😊");
+            document.querySelector(".container").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
